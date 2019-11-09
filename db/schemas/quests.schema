@@ -1,0 +1,18 @@
+create_table :quests, force: :cascade do |t|
+  t.references :parent
+  t.references :child
+
+  t.string   :title, null: false
+  t.text     :description, null: false
+  t.integer  :point, null: false
+  t.string   :quest_type, null: false, default: :daily
+  t.string   :status, null: false, default: :none
+  t.datetime :period
+
+  t.string :image
+
+  t.timestamps
+
+  t.index ["parent_id"], name: "index_parent_id_on_quests"
+  t.index ["child_id"], name: "index_child_id_on_quests"
+end

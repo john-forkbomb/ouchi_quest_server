@@ -1,0 +1,9 @@
+create_table :quest_day_of_weeks, force: :cascade do |t|
+  t.references :quest
+
+  t.integer :code, null: false
+
+  t.timestamps
+
+  t.index ["quest_id"], name: "index_quest_id_on_quest_day_of_weeks"
+end

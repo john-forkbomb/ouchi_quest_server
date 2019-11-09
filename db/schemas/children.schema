@@ -1,0 +1,11 @@
+create_table :children, force: :cascade do |t|
+  t.references :parent
+
+  t.string :name, null: false
+  t.string :sex, null: false, default: :other
+  t.integer :point, null: false, default: 0
+
+  t.string :image
+
+  t.timestamps
+end

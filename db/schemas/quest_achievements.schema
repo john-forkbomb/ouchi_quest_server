@@ -1,0 +1,13 @@
+create_table :quest_achievements, force: :cascade do |t|
+  t.references :parent
+  t.references :child
+
+  t.bigint  :quest_id, null: false
+  t.string  :title, null: false
+  t.integer :point, null: false, default: 0
+
+  t.timestamps
+
+  t.index ["parent_id"], name: "index_parent_id_on_quest_achievements"
+  t.index ["child_id"], name: "index_child_id_on_quest_achievements"
+end

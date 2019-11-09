@@ -1,0 +1,12 @@
+create_table :point_grants, force: :cascade do |t|
+  t.references :parent
+  t.references :child
+
+  t.text    :description, null: false
+  t.integer :point, null: false, default: 0
+
+  t.timestamps
+
+  t.index ["parent_id"], name: "index_parent_id_on_point_grants"
+  t.index ["child_id"], name: "index_child_id_on_point_grants"
+end

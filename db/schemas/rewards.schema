@@ -1,0 +1,16 @@
+create_table :rewards, force: :cascade do |t|
+  t.references :parent
+  t.references :child
+
+  t.string  :name, null: false
+  t.text    :description, null: false
+  t.integer :point, null: false
+  t.string  :status, null: false, default: :none
+
+  t.string :image
+
+  t.timestamps
+
+  t.index ["parent_id"], name: "index_parent_id_on_rewards"
+  t.index ["child_id"], name: "index_child_id_on_rewards"
+end
