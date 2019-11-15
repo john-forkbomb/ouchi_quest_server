@@ -8,9 +8,9 @@ module Api
       ActiveRecord::Base.transaction do
         @parent = Parent.create!(parent_params)
         @child = @parent.build_child(child_params).save!
-      end
 
-      render json: auth_response
+        render json: auth_response
+      end
     rescue ActiveRecord::RecordInvalid
       render_errors @parent
     end
@@ -64,7 +64,7 @@ module Api
 
     def auth_response
       {
-        token: JsonWebToken.encode({ parent_id: @parent&.id, exp: (Time.now + 2.week).to_i }),
+        token: JWT.encode({ parent_id: @parent&.id, exp: (Time.now + 1.minutes).to_i }, ''),
       }
     end
   end

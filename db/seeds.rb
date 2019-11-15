@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-unless Parent.count.positive? && Child.count.positive?
+unless Parent.exists? && Child.exists?
   @parent = Parent.create!(name: 'お母さん',
                           email: 'mother@example.com',
                           password: 'password',
@@ -16,7 +16,7 @@ unless Parent.count.positive? && Child.count.positive?
   @child = Child.create!(parent: @parent, name: 'たかし', sex: :male)
 end
 
-unless Quest.count.positive?
+unless Quest.exists?
   @quest1 = Quest.create!(
     parent: @parent,
     child: @child,
@@ -55,7 +55,7 @@ unless Quest.count.positive?
   )
 end
 
-unless QuestAchievement.count.positive?
+unless QuestAchievement.exists?
   QuestAchievement.create!(
     parent: @parent,
     child: @child,
@@ -73,7 +73,7 @@ unless QuestAchievement.count.positive?
   )
 end
 
-unless Reward.count.positive?
+unless Reward.exists?
   @reward1 = Reward.create!(
     parent: @parent,
     child: @child,
@@ -92,7 +92,7 @@ unless Reward.count.positive?
   )
 end
 
-unless RewardAcquisition.count.positive?
+unless RewardAcquisition.exists?
   RewardAcquisition.create!(
     parent: @parent,
     child: @child,
