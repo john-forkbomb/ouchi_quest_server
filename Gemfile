@@ -26,7 +26,7 @@ gem 'fast_jsonapi'
 gem 'enumerize'
 
 # server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 
 gem 'uglifier', '>= 1.3.0'
 
